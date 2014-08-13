@@ -1,0 +1,20 @@
+{
+  "name": "henter/wechat-sdk",
+  "description": "WeChat OAuth SDK",
+  "keywords": ["weixin", "wechat", "oauth", "login", "weixinoauth", "wechatoauth", "weixinlogin", "wechatlogin"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Henter",
+      "email": "henter@henter.me"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.9"
+  },
+  "autoload": {
+    "psr-0": {
+      "Henter\\WeChat": "lib/"
+    }
+  }
+}
