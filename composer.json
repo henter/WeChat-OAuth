@@ -1,5 +1,5 @@
 {
-  "name": "henter/wechat-sdk",
+  "name": "henter/wechat-oauth",
   "description": "WeChat OAuth SDK",
   "keywords": ["weixin", "wechat", "oauth", "login", "weixinoauth", "wechatoauth", "weixinlogin", "wechatlogin"],
   "license": "MIT",
