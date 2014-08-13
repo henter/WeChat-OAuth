@@ -1,6 +1,6 @@
 # 微信登录SDK
 
-[![Latest Stable Version](https://poser.pugx.org/henter/wechat-sdk/v/stable.png)](https://packagist.org/packages/henter/wechat-oauth) [![Total Downloads](https://poser.pugx.org/henter/wechat-oauth/downloads.png)](https://packagist.org/packages/henter/wechat-sdk) [![Build Status](https://travis-ci.org/henter/WeChat-OAuth.png?branch=master)](https://travis-ci.org/henter/Wechat-SDK.php) [![Coverage Status](https://coveralls.io/repos/henter/Wechat-OAuth/badge.png?branch=master)](https://coveralls.io/r/henter/Wechat-SDK.php?branch=master)
+[![Latest Stable Version](https://poser.pugx.org/henter/wechat-oauth/v/stable.png)](https://packagist.org/packages/henter/wechat-oauth) [![Total Downloads](https://poser.pugx.org/henter/wechat-oauth/downloads.png)](https://packagist.org/packages/henter/wechat-oauth) [![Build Status](https://travis-ci.org/henter/WeChat-OAuth.png?branch=master)](https://travis-ci.org/henter/Wechat-OAuth) [![Coverage Status](https://coveralls.io/repos/henter/Wechat-OAuth/badge.png?branch=master)](https://coveralls.io/r/henter/Wechat-OAuth?branch=master)
 
 ## Overview
 微信OAuth登录SDK
