@@ -12,6 +12,9 @@
   "require": {
     "php": ">=5.3.9"
   },
+  "require-dev": {
+    "satooshi/php-coveralls": "dev-master"
+  },
   "autoload": {
     "psr-0": {
       "Henter\\WeChat": "lib/"
