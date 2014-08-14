@@ -10,11 +10,11 @@
          stopOnFailure="false"
          syntaxCheck="false"
          verbose="false"
-         bootstrap="../../../vendor/autoload.php"
+         bootstrap="./vendor/autoload.php"
         >
     <testsuites>
-        <testsuite name="Test Suite">
-            <directory suffix=".php">./test/</directory>
+        <testsuite name="WeChat OAuth Test Suite">
+            <directory suffix=".php">./tests/</directory>
         </testsuite>
     </testsuites>
 </phpunit>
