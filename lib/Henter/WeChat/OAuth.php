@@ -6,7 +6,7 @@ class OAuth {
     /**
      * @ignore
      */
-    private $app_id;
+    private $appid;
 
     /**
      * @ignore
@@ -57,13 +57,13 @@ class OAuth {
     private $error;
 
     /**
-     * @param $app_id
+     * @param $appid
      * @param $secret
      * @param null $access_token
      * @return OAuth
      */
-    public function __construct($app_id, $secret, $access_token = null) {
-        $this->app_id = $app_id;
+    public function __construct($appid, $secret, $access_token = null) {
+        $this->appid = $appid;
         $this->secret = $secret;
         $this->access_token = $access_token;
         return $this;
@@ -87,7 +87,7 @@ class OAuth {
      */
     public function getAuthorizeURL($redirect_uri, $scope = 'snsapi_login', $state = null) {
         $params = array();
-        $params['app_id'] = $this->app_id;
+        $params['appid'] = $this->appid;
         $params['redirect_uri'] = $redirect_uri;
         $params['response_type'] = 'code';
         $params['scope'] = $scope;
@@ -113,17 +113,17 @@ class OAuth {
      */
     public function getAccessToken($type = 'code', $key) {
         $params = array();
-        $params['app_id'] = $this->app_id;
+        $params['appid'] = $this->appid;
         $params['secret'] = $this->secret;
 
         if ($type === 'token') {
             $uri = 'sns/oauth2/refresh_token';
-            $params['app_id'] = $this->app_id;
+            $params['appid'] = $this->appid;
             $params['grant_type'] = 'refresh_token';
             $params['refresh_token'] = $key;
         }elseif($type === 'code') {
             $uri = 'sns/oauth2/access_token';
-            $params['app_id'] = $this->app_id;
+            $params['appid'] = $this->appid;
             $params['secret'] = $this->secret;
             $params['code'] = $key;
             $params['grant_type'] = 'authorization_code';
