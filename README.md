@@ -67,9 +67,17 @@ if($access_token = $oauth->getAccessToken('code', $code)){
 
 ###### 通过`access_token`调用API
 
-调用用户信息，需传入`openid`
 ```php
 $oauth = new \Henter\Wechat\OAuth($app_id, $secret, $access_token);
+```
+或
+```php
+$oauth = new \Henter\Wechat\OAuth($app_id, $secret);
+$oauth->setAccessToken($access_token);
+```
+
+调用用户信息，需传入`openid`
+```php
 $userinfo = $oauth->api('sns/userinfo', array('openid'=>$openid));
 
 ```

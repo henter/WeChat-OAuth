@@ -38,7 +38,7 @@ class OAuth {
      *
      * @ignore
      */
-    private $host = "https://open.weixin.qq.com/";
+    private $host = "https://api.weixin.qq.com/";
 
     /**
      * Set timeout
@@ -92,7 +92,16 @@ class OAuth {
         $params['response_type'] = 'code';
         $params['scope'] = $scope;
         $params['state'] = $state;
-        return $this->host . "connect/qrconnect?" . http_build_query($params);
+        return "https://open.weixin.qq.com/connect/qrconnect?" . http_build_query($params);
+    }
+
+    /**
+     * @param $access_token
+     * @return $this
+     */
+    public function setAccessToken($access_token){
+        $this->access_token = $access_token;
+        return $this;
     }
 
     /**
@@ -207,7 +216,7 @@ class OAuth {
         return Request::create(array(
             'url'     => $url,
             'method'  => $method,
-            'headers' => array(),
+            'headers' => array('user-agent'=>$this->user_agent),
             'form'    => $parameters,
             'timeout' => $this->timeout
         ))->send();

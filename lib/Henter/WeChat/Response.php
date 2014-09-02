@@ -68,10 +68,7 @@ class Response
             $result['header'] = $headers;
         }
 
-        //to array if body is json
-        if (strpos($headers['content-type'], 'json')) {
-            $data = json_decode($body, true);
-        }
+        $data = json_decode($body, true);
 
         return $code ? array(
             'code'     => $code,
