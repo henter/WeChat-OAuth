@@ -90,8 +90,11 @@ class Response
     public static function parse_cookies($cookie_lines = array()){
         $data = array();
         foreach($cookie_lines as $line){
-            list($name, $value) = explode('=', explode(';', $line)[0]);
-            $data[trim($name)] = trim($value);
+            $tmp = explode(';', $line);
+            if($tmp){
+                list($name, $value) = explode('=', $tmp[0]);
+                $data[trim($name)] = trim($value);
+            }
         }
         return $data;
     }
