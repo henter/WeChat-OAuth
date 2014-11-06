@@ -50,7 +50,7 @@ class Response
         $protocol = null;
         $message = null;
         $data = array();
-        $cookie_lines = [];
+        $cookie_lines = array();
 
         foreach ($header_lines as $index => $line) {
             if ($index === 0) {
