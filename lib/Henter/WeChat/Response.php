@@ -10,6 +10,7 @@ class Response
     public $body;
     public $error;
     public $headers = array();
+    public $cookies = array();
     public $data = array();
 
     /**
@@ -49,6 +50,7 @@ class Response
         $protocol = null;
         $message = null;
         $data = array();
+        $cookie_lines = [];
 
         foreach ($header_lines as $index => $line) {
             if ($index === 0) {
@@ -59,6 +61,9 @@ class Response
             }
             list($key, $value) = explode(":", $line);
             $headers[strtolower(trim($key))] = trim($value);
+            if(strtolower(trim($key)) == 'set-cookie'){
+                $cookie_lines[] = trim($value);
+            }
         }
 
         if (is_numeric($code)) {
@@ -69,15 +74,26 @@ class Response
         }
 
         $data = json_decode($body, true);
+        $cookies = static::parse_cookies($cookie_lines);
 
         return $code ? array(
             'code'     => $code,
             'body'     => $body,
             'headers'  => $headers,
+            'cookies'  => $cookies,
             'message'  => $message,
             'protocol' => $protocol,
             'data'     => $data
         ) : false;
+    }
+
+    public static function parse_cookies($cookie_lines = array()){
+        $data = array();
+        foreach($cookie_lines as $line){
+            list($name, $value) = explode('=', explode(';', $line)[0]);
+            $data[trim($name)] = trim($value);
+        }
+        return $data;
     }
 
     /**
