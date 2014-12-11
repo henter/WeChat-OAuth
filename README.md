@@ -34,14 +34,14 @@ use Henter\WeChat\OAuth
 #### Initialization
 实例化`OAuth`即可完成初始化
 ```php
-$oauth = new \Henter\Wechat\OAuth($appid, $secret);
+$oauth = new \Henter\WeChat\OAuth($appid, $secret);
 ```
 `$appid`和`$secret`是微信开放平台的应用的唯一标识和秘钥AppSecret
 
 #### Code samples
 ##### 登录
 ```php
-$oauth = new \Henter\Wechat\OAuth($appid, $secret);
+$oauth = new \Henter\WeChat\OAuth($appid, $secret);
 $callback_url = 'http://your_site.com/your_callback_url';
 $url = $oauth->getAuthorizeURL($callback_url);
 ```
@@ -52,7 +52,7 @@ $url = $oauth->getAuthorizeURL($callback_url);
 //获取code参数
 $code = $_GET['code'];
 
-$oauth = new \Henter\Wechat\OAuth($appid, $secret);
+$oauth = new \Henter\WeChat\OAuth($appid, $secret);
 if($access_token = $oauth->getAccessToken('code', $code)){
 	$refresh_token = $oauth->getRefreshToken();
 	$expires_in = $oauth->getExpiresIn();
@@ -68,11 +68,11 @@ if($access_token = $oauth->getAccessToken('code', $code)){
 ###### 通过`access_token`调用API
 
 ```php
-$oauth = new \Henter\Wechat\OAuth($appid, $secret, $access_token);
+$oauth = new \Henter\WeChat\OAuth($appid, $secret, $access_token);
 ```
 或
 ```php
-$oauth = new \Henter\Wechat\OAuth($appid, $secret);
+$oauth = new \Henter\WeChat\OAuth($appid, $secret);
 $oauth->setAccessToken($access_token);
 ```
 
@@ -86,7 +86,7 @@ $userinfo = $oauth->api('sns/userinfo', array('openid'=>$openid));
 
 ##### 通过`refresh_token`刷新或续期`access_token`
 ```php
-$oauth = new \Henter\Wechat\OAuth($appid, $secret);
+$oauth = new \Henter\WeChat\OAuth($appid, $secret);
 
 //以下两种方式一样
 $access_token = $oauth->getAccessToken('token', $refresh_token);
