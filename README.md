@@ -47,6 +47,15 @@ $url = $oauth->getAuthorizeURL($callback_url);
 ```
 重定向到`$url`，待用户允许授权后，将会重定向到`$callback_url`上，并且带上`code`和`state`参数（示例代码未传入`state`参数）
 
+默认授权地址是跳转到微信扫描二维码页面（适用于PC端），如果用户在微信内访问网页点微信登陆，这种方式不太适合。
+需要用下面的方法获取用于微信内的授权地址：
+
+```php
+$url = $oauth->getWeChatAuthorizeURL($callback_url);
+```
+注：这个在微信开放平台文档上没有（只在公众号平台文档有提到），不过测试发现同样适用于开放平台应用。
+
+
 ##### 通过`code`参数获取`access_token`
 ```php
 //获取code参数

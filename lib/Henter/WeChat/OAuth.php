@@ -78,7 +78,8 @@ class OAuth {
     }
 
     /**
-     * get authorize url, with callback url and scope
+     * 获取二维码授权页，用于PC端登陆
+     * get qrcode authorize url, with callback url and scope
      *
      * @param $redirect_uri
      * @param string $scope
@@ -93,6 +94,25 @@ class OAuth {
         $params['scope'] = $scope;
         $params['state'] = $state;
         return "https://open.weixin.qq.com/connect/qrconnect?" . http_build_query($params);
+    }
+
+    /**
+     * 用户授权，用于微信端登陆
+     * get authorize url, with callback url and scope
+     *
+     * @param $redirect_uri
+     * @param string $scope
+     * @param null $state
+     * @return string
+     */
+    public function getWeChatAuthorizeURL($redirect_uri, $scope = 'snsapi_login', $state = null) {
+        $params = array();
+        $params['appid'] = $this->appid;
+        $params['redirect_uri'] = $redirect_uri;
+        $params['response_type'] = 'code';
+        $params['scope'] = $scope;
+        $params['state'] = $state;
+        return "https://open.weixin.qq.com/connect/oauth2/authorize?" . http_build_query($params);
     }
 
     /**
