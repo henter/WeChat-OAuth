@@ -34,6 +34,11 @@ class OAuth {
     private $openid;
 
     /**
+     * @ignore
+     */
+    private $unionid;
+
+    /**
      * Set up the API root URL
      *
      * @ignore
@@ -160,6 +165,7 @@ class OAuth {
             $this->refresh_token = $return['refresh_token'];
             $this->expires_in = $return['expires_in'];
             $this->openid = $return['openid'];
+            $this->unionid = isset($return['unionid']) ? $return['unionid'] : null;
         }else{
             return $this->error("get access token failed: " . $return['errmsg']);
         }
@@ -198,6 +204,14 @@ class OAuth {
      */
     public function getOpenid(){
         return $this->openid;
+    }
+
+    /**
+     * get unionid
+     * @return string
+     */
+    public function getUnionid(){
+        return $this->unionid;
     }
 
     /**
