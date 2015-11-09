@@ -109,7 +109,7 @@ class Response
     public function header($key, $default = null)
     {
         $key = strtolower($key);
-        return !isset($this->headers[$key]) ? $this->headers[$key] : $default;
+        return isset($this->headers[$key]) ? $this->headers[$key] : $default;
     }
 
     /**
