@@ -59,7 +59,7 @@ class Response
                 $code = (int)$code;
                 continue;
             }
-            list($key, $value) = explode(":", $line);
+            list($key, $value) = explode(":", $line, 2);
             $headers[strtolower(trim($key))] = trim($value);
             if(strtolower(trim($key)) == 'set-cookie'){
                 $cookie_lines[] = trim($value);
