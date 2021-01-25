@@ -88,7 +88,7 @@ class OAuth {
      *
      * @param $redirect_uri
      * @param string $scope
-     * @param null $state
+     * @param string|null $state
      * @return string
      */
     public function getAuthorizeURL($redirect_uri, $scope = 'snsapi_login', $state = null) {
@@ -107,7 +107,7 @@ class OAuth {
      *
      * @param $redirect_uri
      * @param string $scope
-     * @param null $state
+     * @param string|null $state
      * @return string
      */
     public function getWeChatAuthorizeURL($redirect_uri, $scope = 'snsapi_login', $state = null) {
@@ -133,7 +133,7 @@ class OAuth {
      * get access_token
      *
      * @param string $type [code|token]
-     * @param $key [code|refresh_token]
+     * @param string $key [code|refresh_token]
      * @return string
      */
     public function getAccessToken($type = 'code', $key) {

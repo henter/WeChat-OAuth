@@ -17,7 +17,7 @@
   },
   "autoload": {
     "psr-0": {
-      "Henter\\WeChat": "lib/"
+      "Henter\\WeChat": "lib/Henter/WeChat/"
     }
   }
 }
